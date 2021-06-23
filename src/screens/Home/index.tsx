@@ -10,9 +10,12 @@ import { ListHeader } from "../../components/ListHeader";
 import { Appointment } from "../../components/Appointment";
 
 import { styles } from "./styles";
+import { useNavigation } from "@react-navigation/native";
 
 export function Home() {
   const [category, setCategory] = useState('');
+
+  const navigation = useNavigation();
 
   const appointments = [
     {
@@ -47,6 +50,10 @@ export function Home() {
       setCategory(categoryId)
   }
 
+  function handleAppontmentDetails() {
+    navigation.navigate('AppointmentDetails');
+  }
+
   return (
     <Background>
       <View style={styles.container}>
@@ -71,7 +78,10 @@ export function Home() {
               data={appointments}
               keyExtractor={item => item.id}
               renderItem={({item}) => (
-                <Appointment data={item} />
+                <Appointment 
+                  data={item}
+                  onPress={handleAppontmentDetails}  
+                />
               )}
               ItemSeparatorComponent={() => <ListDivider />}
               style={styles.matches}
