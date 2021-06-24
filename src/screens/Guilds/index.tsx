@@ -24,12 +24,6 @@ export function Guilds({ handleGuildsSelected }: Props) {
       icon: null,
       owner: true
     },
-    {
-      id: '3',
-      name: 'Genshin Impactados',
-      icon: null,
-      owner: true
-    }
   ]
 
   return(
@@ -44,7 +38,9 @@ export function Guilds({ handleGuildsSelected }: Props) {
           />
         )}
         showsVerticalScrollIndicator={false}
-        ItemSeparatorComponent={() => <ListDivider />}
+        ItemSeparatorComponent={() => <ListDivider isCentered />}
+        ListHeaderComponent={() => <ListDivider isCentered />}
+        contentContainerStyle={{ paddingBottom: 69, paddingTop: 103 }}
         style={styles.guilds}
       />
     </View>
