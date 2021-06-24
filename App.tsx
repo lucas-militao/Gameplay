@@ -1,6 +1,5 @@
 import React from "react";
 import { StatusBar } from "react-native";
-import { useFonts } from 'expo-font';
 import {
   Inter_400Regular,
   Inter_500Medium
@@ -9,6 +8,10 @@ import {
   Rajdhani_500Medium,
   Rajdhani_700Bold
 } from '@expo-google-fonts/rajdhani';
+import { useFonts } from 'expo-font';
+
+import { AuthProvider } from "./src/hooks/auth";
+
 import AppLoading from "expo-app-loading";
 import { Background } from "./src/components/Background";
 
@@ -33,8 +36,9 @@ export default function App() {
           backgroundColor="transparent"
           translucent
       />
-
-      <Routes />
+      <AuthProvider>
+        <Routes />
+      </AuthProvider>
     </Background>
   )
 }
